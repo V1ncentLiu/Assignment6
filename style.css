@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+}
+
+#gallery{
+    width: 80%;
+    margin: auto;
+    height: 300px;
+    
+}
+
+#lft{
+    width: 25%;
+    height: 150px;
+    float: left;
+    background-color: white;
+}
+
+#mid{
+    width: 50%;
+    height: 180px;
+    float: left;
+    background-color: white;
+}
+
+#rht{
+    width: 25%;
+    height: 150px;
+    float: left;
+    background-color: white;
+	clear: right;
+}
+
+#lftbtn{
+	margin: 50px 100% 50px 0;
+	height: 50px;
+	width: 25%;
+	background-color: none;
+}
+
+#rhtbtn{
+	margin: 50px 0 50px 100%;
+	height: 50px;
+	width: 25%;
+	background-color: none;	
+}
+
+
+
+
+
+
+
+
