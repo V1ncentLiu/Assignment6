@@ -32,20 +32,40 @@ body{
 }
 
 #lftbtn{
-	margin: 50px 100% 50px 0;
+	margin-top: 50px;
+	margin-left: 0;
+	margin-right: 100%; 
+	margin-bottom: 50px;
 	height: 50px;
 	width: 25%;
 	background-color: none;
 }
 
 #rhtbtn{
-	margin: 50px 0 50px 100%;
+	margin-top: 50px;
+	margin-left: 135px;
+	margin-right: 0;
+	margin-bottom: 50px;
 	height: 50px;
 	width: 25%;
 	background-color: none;	
 }
 
+#resetPic{
+	margin: auto;
+	width: 100px;
+	height: 30px;
+	background-color: white;
+	text-align: center;
+}
 
+.choose:hover{border-style:outset;}
+.choose:active{border-style:inset;}
+
+#resetPic:hover{border-style:outset;}
+#resetPic:active{border-style:inset;}
+
+#fileSelect{margin:auto;width:100px;}
 
 
 

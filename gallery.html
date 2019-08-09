@@ -4,13 +4,15 @@
         <meta charset="utf-8" />
         <title>Gallery</title>
         <link rel="stylesheet" href="style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+		</script> 
     </head>
-    <body>
+    <body onload="initialize()">
         <div id="gallery">
             <div id="lft">
                 <div id="lftbtn">
 					<a id="toLeft" onclick="next()">
-						<img src="img/left.png" style="height: 100%;"/>
+						<img src="left.png" class="choose" style="height: 100%;"/>
 					</a>
 				</div>
             </div>
@@ -18,13 +20,19 @@
             <div id="mid"></div>
             
             <div id="rht">
-                <div id="rhtbtn">
+                <div id="rhtbtn" class="choose">
 					<a id="toRght" onclick="prev()">
-						<img src="img/right.png" style="height: 100%;"/>
+						<img src="right.png" class="choose" style="height: 100%;"/>
 					</a>
 				</div>
             </div>
         </div>
+		
+		<div id="resetPic" onclick="resetPic()">RESET</div>
+		<br><br><br><br>
+		<div id="fileSelect">
+			<input type="file" multiple onchange="loadPic(this)">
+		</div>
         <script type="text/javascript" src="galleryScript.js"></script>
     </body>
 </html>
