@@ -1,55 +1,75 @@
 var seq = [];
-
 var mid = document.getElementById("mid");
 var lft = document.getElementById("lft");
 var rht = document.getElementById("rht");
+var fileName = document.getElementsByTagName("input");
 
-function loadPic(){
-	var path = "img/";
-	$.ajax({
-		url: path,
-		success: function(data){
-			$(data).fild("a").attr("href", function(i, val){
-				if(val.match(/\.(jpe?g|png)$/)){
-					$(seq).push(path + val);
+var rightPic = document.createElement("img");
+document.getElementById('lft').appendChild(rightPic);
+
+var midPic = document.createElement("img");
+document.getElementById('mid').appendChild(midPic);
+
+var leftPic = document.createElement("img");
+document.getElementById('rht').appendChild(leftPic);
+
+function loadPic(){	
+	$(function(){
+		document.getElementById('file').onchange = function(){
+			var file = this.files[0];
+			var read = new FileReader();
+			read.onload = function(evt){
+				var lines = this.result.split('+');
+				for (var i = 0; i < lines.length; i++){
+					lines[i] = "img/" + lines[i];
+					seq.push(lines[i]);
 				}
-			});
-		}
+			};
+			read.readAsText(file);
+		};
 	});
+	
 	/*
-	var temp = path.getFiles();
-	for(var i = 0; i < path.length; i++){
-		var f = temp[i];
-		seq.push(f.name);
+	for (var i = 0; i < fileName.length; i++){
+		var fileUp = fileName[i];
+		if (fileUp.files.length){
+			seq.push(fileUp.files[0]);
+		}
 	}
 	*/
 }
-
+var i = 0;
 function next(){
-	var i = 0;
-	for(i = 0; i >= seq.length; i++){
-		rht.src = seq[i];
-		mid.src = seq[i - 1];
-		lft.src = seq[i - 2];
-		if(i >= seq.length){
-			i = 0;
-		}
-	}
+	rightPic.src = seq[i];
+	rightPic.height = "150px";
+	midPic.src = seq[i + 1];
+	midPic.height = "180px";
+	leftPic.src = seq[i + 2];
+	leftPic.height = "150px";
+	i++;
 }
 
-function prev(){
-	var i = 0;
-	for(i = seq.length; i <= 0; i--)
-	lft.src = seq[i];
-	mid.src = seq[i + 1];
-	rht.src = seq[i + 2];
-	if(i <= seq.length){
+function prev(){	
+	leftPic.src = seq[i];
+	leftPic.height = "150px";
+	midPic.src = seq[i - 1];
+	midPic.height = "180px";
+	rightPic.src = seq[i - 2];
+	rightPic.height = "150px";
+	i--;
+}
+
+function check(){
+	if(i > seq.length){
 		i = 0;
+	}
+	if (i < 0){
+		i = seq.length;
 	}
 }
 
 function resetPic(){
-	mid.src=seq[0];
+	midPic.src=seq[0];
 }
 
 function initialize(){

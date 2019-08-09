@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <title>Gallery</title>
         <link rel="stylesheet" href="style.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-		</script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="icon" href="right.png" />
     </head>
     <body onload="initialize()">
         <div id="gallery">
@@ -31,7 +31,7 @@
 		<div id="resetPic" onclick="resetPic()">RESET</div>
 		<br><br><br><br>
 		<div id="fileSelect">
-			<input type="file" multiple onchange="loadPic(this)">
+			<input type="file" name="file" id="file" multiple onchange="loadPic(this)">
 		</div>
         <script type="text/javascript" src="galleryScript.js"></script>
     </body>
